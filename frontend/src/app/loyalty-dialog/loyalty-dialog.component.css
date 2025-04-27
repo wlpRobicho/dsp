@@ -1,0 +1,106 @@
+.dialog-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .loyalty-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  input {
+    display: block;
+    margin: 10px auto;
+    font-size: 20px;
+    padding: 12px;
+    width: 90%;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  input.error {
+    border-color: red;
+    animation: shake 0.3s;
+  }
+  
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+    margin-top: 15px;
+    padding: 0 10px;
+  }
+  
+  .keypad button {
+    min-width: 60px;
+    font-size: 18px;
+    padding: 14px 0;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .keypad button:hover {
+    background-color: #ddd;
+  }
+  
+  .actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  .actions button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .actions button:first-child {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+  }
+  
+  .actions button:last-child {
+    background-color: #f06292;
+    color: white;
+    border: none;
+  }
+  
+  .error-message {
+    position: absolute;
+    top: 108px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f44336;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 10px;
+    background-color: #fff0f0;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    animation: shake 0.3s;
+    z-index: 2;
+  }
+  
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  

@@ -1,0 +1,69 @@
+
+
+  <div class="analytics-container" [class.dark-mode]="isDarkMode">
+    
+    <div class="theme-toggle">
+        <button (click)="toggleDarkMode()">
+          <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+          {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+        </button>
+      </div>
+      
+      
+
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button (click)="showView('daily')" [class.active]="viewMode === 'daily'">Today</button>
+      <button (click)="showView('weekly')" [class.active]="viewMode === 'weekly'">This Week</button>
+      <button (click)="showView('monthly')" [class.active]="viewMode === 'monthly'">This Month</button>
+      <button (click)="showView('top')" [class.active]="viewMode === 'top'">Top Products</button>
+    </div>
+  
+    <!-- Daily -->
+    <div *ngIf="viewMode === 'daily'" class="analytics-card">
+      <canvas baseChart
+        [data]="dailyChartData"
+        [options]="dailyChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </div>
+  
+    <!-- Weekly -->
+    <div *ngIf="viewMode === 'weekly'" class="analytics-card">
+      <canvas baseChart
+        [data]="weeklyChartData"
+        [options]="weeklyChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </div>
+  
+    <!-- Monthly -->
+    <div *ngIf="viewMode === 'monthly'" class="analytics-card">
+      <canvas baseChart
+        [data]="monthlyChartData"
+        [options]="monthlyChartOptions"
+        [type]="'bar'">
+      </canvas>
+    </div>
+  
+    <!-- Top Products -->
+    <div *ngIf="viewMode === 'top'" class="analytics-card">
+      <h2>Top Products</h2>
+      <table class="top-products-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Sold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of analyticsData?.top_products">
+            <td>{{ product.items__product__name }}</td>
+            <td>{{ product.quantity_sold }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>

@@ -1,0 +1,12 @@
+<h2 class="popup-title">Select an Item</h2>
+
+<div class="popup-items-grid">
+  <div 
+    class="popup-item" 
+    *ngFor="let item of nonBarcodeItems"
+    (click)="selectItem(item)"
+  >
+    <img [src]="item.image" alt="{{ item.name }}" />
+    <div class="item-name">{{ item.name }}</div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="checkout-page">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <!-- Barcode Input -->
+      <div class="barcode-scanner">
+        <input type="text" placeholder="Enter barcode..." [(ngModel)]="barcode" readonly />
+        <!-- Alternative with Material Icon -->
+        <button class="search-button" (click)="searchItem()">
+            <mat-icon>search</mat-icon>
+        </button>
+      </div>
+  
+      <!-- Digital Keypad -->
+      <div class="keypad">
+        <div *ngFor="let row of keypadLayout" class="keypad-row">
+          <button *ngFor="let key of row" (click)="pressKey(key)">{{ key }}</button>
+        </div>
+      </div>
+  
+      <!-- Utility Buttons -->
+      <div class="utilities">
+        <button class="utility-button refund" [class.active]="isRefund" (click)="toggleRefund()">
+            <mat-icon>receipt_long</mat-icon>
+            {{ isRefund ? 'Refund Mode: ON' : 'Refund' }}
+        </button>
+  
+        <button class="utility-button discount" (click)="openDiscountDialog()">
+            <mat-icon>discount</mat-icon>
+            Discount
+        </button>
+  
+        <button class="utility-button clear" (click)="clearCart()">
+            <mat-icon>delete_forever</mat-icon>
+            Clear All
+        </button>
+
+        <button class="utility-button non-barcode" (click)="openNonBarcodeDialog()">
+          <mat-icon>inventory_2</mat-icon> <!-- New icon for items -->
+          Non Barcode
+        </button>
+
+      </div>
+
+      <div class="live-clock">
+  {{ currentTime }} 
+   </div>
+    </div>
+  
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <!-- User Bar -->
+      <div class="user-bar">
+        <span class="user-name">{{ username }}</span>
+        <button class="logout-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+      </div>
+  
+      <!-- Cart Items -->
+      <div class="cart-items">
+        <!-- Header Row -->
+        <div class="cart-header">
+          <div class="cart-col name">Name</div>
+          <div class="cart-col quantity">Qty</div>
+          <div class="cart-col price">Total</div>
+        </div>
+      
+        <!-- Item Rows -->
+        <div
+          *ngFor="let item of cartItems"
+          class="cart-row"
+          [ngClass]="{ 'selected': item === selectedItem }"
+          (click)="selectedItem = item"
+        >
+          <div class="cart-col name">{{ item.name }}</div>
+          <div class="cart-col quantity">{{ item.quantity | number:'1.2-2' }}</div>
+          <div class="cart-col price">${{ item.total.toFixed(2) }}</div>
+        </div>
+      </div>
+  
+      <!-- Cart Summary -->
+      <div class="cart-summary summary-grid">
+    <div class="label"><mat-icon>receipt</mat-icon> Subtotal</div>
+    <div class="value">${{ subtotal | number:'1.2-2' }}</div>
+    <!-- Discount line -->
+    <ng-container *ngIf="discountCode">
+      <div class="label discount-line">
+        <button class="clear-discount-btn" mat-icon-button (click)="clearDiscount()">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-icon class="icon percent">percent</mat-icon>
+        <span class="discount-label">Discount Applied (10%)</span>
+      </div>
+      <div class="value discount-amount">- ${{ discountAmount | number: '1.2-2' }}</div>
+    </ng-container>
+    <div class="label"><mat-icon>inventory_2</mat-icon> Items</div>
+    <div class="value">{{ cartItems.length }}</div>
+
+    <div class="label"><mat-icon>countertops</mat-icon> Quantity</div>
+    <div class="value">{{ totalQuantity }}</div>
+
+    <div class="label total"><mat-icon>attach_money</mat-icon> Total</div>
+    <div class="value total">${{ total | number:'1.2-2' }}</div>
+
+
+    
+</div>
+  
+        <!-- Checkout & Action Buttons -->
+        <div class="cart-actions">
+          <button class="checkout-bottom" [disabled]="cartItems.length === 0" (click)="startCheckout()">
+            Checkout
+          </button>          
+          <div class="actions-button">
+            <button [disabled]="!selectedItem" (click)="subtractItem(selectedItem)">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <button [disabled]="!selectedItem" (click)="addItem(selectedItem)">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button [disabled]="!selectedItem" class="remove-button" (click)="removeItem(selectedItem)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+    </div>
+  </div>

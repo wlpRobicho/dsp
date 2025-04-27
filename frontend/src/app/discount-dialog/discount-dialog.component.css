@@ -1,0 +1,57 @@
+.discount-display {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    position: relative;
+  }
+  
+.keypad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.keypad-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.keypad-row button {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.keypad-row:last-child button {
+  width: 100px;
+  height: 50px;
+  font-size: 18px;
+}
+
+
+  
+  .error-msg {
+    color: red;
+    font-size: 16px;
+    margin-top: 4px;
+  }
+  
+  .shake {
+    animation: shake 0.4s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-8px); }
+    50%  { transform: translateX(8px); }
+    75%  { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+  }
+  

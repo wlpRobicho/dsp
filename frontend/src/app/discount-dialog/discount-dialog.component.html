@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Enter Discount Code</h2>
+
+<div mat-dialog-content [ngClass]="{ 'shake': shake }" class="discount-display">
+  {{ discountCode || 'Enter Code' }}
+  <div *ngIf="error" class="error-msg">{{ error }}</div>
+</div>
+
+<div mat-dialog-content class="keypad">
+  <div class="keypad-row" *ngFor="let row of [['A','B','C','D','E','F'], ['G','H','I','J','K','L'], ['M','N','O','P','Q','R'], ['S','T','U','V','W','X'], ['Y','Z','0','1','2','3'], ['4','5','6','7','8','9']]">
+    <button mat-raised-button (click)="addCharacter(char)" *ngFor="let char of row">
+      {{ char }}
+    </button>
+  </div>
+  <div class="keypad-row">
+    <button mat-raised-button color="warn" (click)="clear()">Clear</button>
+    <button mat-raised-button (click)="backspace()">←</button>
+    <button mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+</div>

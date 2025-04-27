@@ -1,0 +1,28 @@
+.receipt-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .change-due p {
+    margin: 10px 0 0;
+    font-size: 18px;
+  }
+  
+  .change-due h1 {
+    margin: 5px 0 20px;
+    font-size: 32px;
+    color: #4caf50;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  

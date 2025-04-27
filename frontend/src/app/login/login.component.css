@@ -1,0 +1,166 @@
+/* Apply styles to the body to make the login container take full width and center */
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0; /* Remove default body margin */
+    width: 100vw; /* Take up 100% of the viewport width */
+    height: 100vh; /* Take up 100% of the viewport height */
+    background-image: url(../../assets/basket_image.jpg);
+    background-size:cover; /* Scale the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically inside the container */
+    text-align: left; /* Align text within the container to the left */
+    padding: 30px; /* Increased padding for more space */
+    width: 80%; /* Adjust the width of the login container as needed */
+    max-width: 960px; /* Set a maximum width for the login container */
+    /* Set a maximum width to prevent it from becoming too wide on large screens */
+  }
+  
+  h2 {
+    text-align: left; /* Align the heading text to the left */
+    margin-bottom: 25px;
+    color: #000000;
+    width: 40%; /* Adjust width as needed */
+  }
+  
+  .input-container {
+    margin-bottom: 25px;
+    width: 100%; 
+  }
+  
+  label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left; /* Ensure labels are left-aligned */
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 12px; /* Increased padding for better touch targets */
+    font-size: 18px; /* Slightly larger font size */
+    width: 100%; 
+    text-align: left; /* Align the input text to the left */
+    border: 1px solid #646262;
+    border-radius: 6px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+
+input[readonly]:focus {
+  outline: 2px solid rgb(13, 126, 5); 
+  
+}
+
+  
+  .keypad {
+    display: flex;
+    flex-direction: column;
+    width: 30%; /* Adjust keypad width */
+    margin-top: 30px;
+    margin-left: 4rem; /* Changed to margin-left to position to the right */
+  }
+  
+  .keypad-row {
+    display: flex;
+    justify-content: space-around; /* Distribute buttons evenly */
+    margin-bottom: 12px;
+    width: 100%; /* Make each row take full width */
+  }
+  
+  button {
+    padding: 12px 18px; /* Increased button padding */
+    font-size: 18px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    cursor: pointer;
+    width: calc(33% - 10px); /* Adjust button width for even spacing */
+    box-sizing: border-box;
+    transition: all 0.4s;
+    font-weight: bolder;
+  }
+  button:hover{
+    transform: scale(1.1);
+    transition: all 0.4s;
+  }
+  
+  .login-button {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .c_button{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+
+  }
+
+  .password_icon{
+    font-size: 1.75rem;
+    width: 100%;
+  }
+  .userId_icon{
+    width: 100%;
+    font-size: 1.75rem;
+  }
+
+  .error-snackbar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background-color: #d32f2f; /* Bright Red */
+    color: white;
+    padding: 16px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.4s ease;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  .error-snackbar.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  .login-success-snackbar {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 12px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.3s ease;
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

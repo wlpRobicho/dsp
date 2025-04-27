@@ -1,0 +1,20 @@
+.dialog-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .payment-buttons button {
+    width: 200px;
+    font-size: 18px;
+  }
+  

@@ -1,0 +1,80 @@
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #008cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    background-color: #006fce;
+  }
+  
+  .popup-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .popup-items-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Force exactly 5 per row */
+    gap: 20px;
+    padding: 10px;
+    max-height: 400px; /* Limit height */
+    overflow-y: auto;  /* Enable vertical scroll */
+  }
+  
+  .popup-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .popup-item:hover {
+    transform: scale(1.05);
+    background: #e0e0e0;
+  }
+  
+  .popup-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 8px;
+  }
+  
+  .item-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .popup-items-grid::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .popup-items-grid::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  
+  .popup-items-grid::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+  

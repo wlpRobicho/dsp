@@ -1,0 +1,42 @@
+<div class="customer-container">
+
+  <!-- Thank You Screen -->
+  <div *ngIf="showThankYou" class="thank-you-animation">
+    <mat-icon class="celebration-icon">celebration</mat-icon>
+    <h1 class="thank-you-text">Thank You For Your Purchase!</h1>
+    <mat-icon class="celebration-icon">celebration</mat-icon>
+  </div>
+
+  <!-- Welcome Screen -->
+  <div *ngIf="showWelcome" class="welcome-screen">
+    <h1 class="welcome-text">Welcome <mat-icon class="cart-icon" >shopping_cart</mat-icon></h1>
+  </div>
+  
+
+  <!-- Cart Screen -->
+  <div *ngIf="!showThankYou && !showWelcome" class="cart-box">
+    <h2>Items</h2>
+
+    <div class="cart-header">
+      <div class="header-item">Name</div>
+      <div class="header-qty">Qty</div>
+      <div class="header-price">Price</div>
+    </div>
+
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="item-name">{{ item.name }}</div>
+      <div class="item-qty">{{ item.quantity }}</div>
+      <div class="item-price">${{ item.total.toFixed(2) }}</div>
+    </div>
+
+    <div class="cart-total">
+      <span>Total:</span>
+      <span class="total-amount">${{ (discountApplied ? total * 0.9 : total).toFixed(2) }}</span>
+    </div>
+
+    <div *ngIf="discountApplied" class="discount-text">
+      (10% Discount Applied)
+    </div>
+  </div>
+
+</div>

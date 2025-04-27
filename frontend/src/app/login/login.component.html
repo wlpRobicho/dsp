@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+</head>
+<body>
+
+<div class="login-container">
+  <div>
+    <div class="input-container">
+      <label for="userIdInput">
+        <mat-icon class="userId_icon">person</mat-icon>
+      </label>
+      <input 
+        type="text" 
+        id="userIdInput" 
+        [(ngModel)]="userIdValue" 
+        name="userId"
+        readonly 
+        (focus)="focusUserId()" 
+        maxlength="4"
+        required 
+      />
+      <div *ngIf="userIdValue!.length > 4" class="error">Max 4 digits</div>
+    </div>
+
+    <div class="input-container">
+      <label for="passwordInput">
+        <mat-icon class="password_icon">key</mat-icon>
+      </label>
+      <input 
+        type="password" 
+        id="passwordInput" 
+        [(ngModel)]="passwordValue" 
+        name="password"
+        readonly 
+        (focus)="focusPassword()" 
+        maxlength="4"
+        required 
+      />
+      <div *ngIf="passwordValue!.length > 4" class="error">Max 4 digits</div>
+    </div>
+  </div>
+
+  <div class="keypad">
+    <div class="keypad-row">
+      <button class="first_row" (click)="appendToInput('7')">7</button>
+      <button (click)="appendToInput('8')">8</button>
+      <button (click)="appendToInput('9')">9</button>
+    </div>
+    <div class="keypad-row">
+      <button (click)="appendToInput('4')">4</button>
+      <button (click)="appendToInput('5')">5</button>
+      <button (click)="appendToInput('6')">6</button>
+    </div>
+    <div class="keypad-row">
+      <button (click)="appendToInput('1')">1</button>
+      <button (click)="appendToInput('2')">2</button>
+      <button (click)="appendToInput('3')">3</button>
+    </div>
+    <div class="keypad-row">
+      <button class="c_button" (click)="clearInput()"><mat-icon>backspace</mat-icon></button>
+      <button (click)="appendToInput('0')">0</button>
+      <button 
+        class="login-button" 
+        [disabled]="!userIdValue || !passwordValue || userIdValue.length !== 4 || passwordValue.length !== 4"
+        (click)="loginUser()">
+        <mat-icon>arrow_right_alt</mat-icon> 
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

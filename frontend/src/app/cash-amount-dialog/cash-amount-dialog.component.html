@@ -1,0 +1,18 @@
+<h2 class="dialog-title"  [ngClass]="{ 'shake': shake }" >Amount Received</h2>
+
+<div class="amount-display"  [ngClass]="{ 'shake': shake }" >
+  <input type="text" [value]="amountReceived" readonly />
+</div>
+
+<div class="keypad">
+  <button *ngFor="let key of ['1','2','3','4','5','6','7','8','9','0']" (click)="append(key)">
+    {{ key }}
+  </button>
+  <button (click)="backspace()">←</button>
+  <button (click)="clear()">C</button>
+</div>
+
+<div class="actions">
+  <button mat-flat-button color="primary" (click)="confirm()">Confirm</button>
+  <button mat-flat-button color="warn" (click)="cancel()">Cancel</button>
+</div>

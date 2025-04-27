@@ -1,0 +1,18 @@
+<div class="receipt-container">
+    <h2>Sale Completed!</h2>
+  
+    <div class="change-due">
+      <p *ngIf="isRefund">Refund Amount:</p>
+      <p *ngIf="!isRefund">Change to Give:</p>      
+      <h1 *ngIf="isRefund; else changeDueTemplate">${{ data.total }}</h1>
+      <ng-template #changeDueTemplate>
+        <h1>${{ data.changeDue }}</h1>
+      </ng-template>
+    </div>
+    
+    <div class="actions">
+      <button mat-flat-button color="primary" (click)="printReceipt()">Print Receipt</button>
+      <button mat-flat-button color="accent" (click)="close()">Skip</button>
+    </div>
+  </div>
+  

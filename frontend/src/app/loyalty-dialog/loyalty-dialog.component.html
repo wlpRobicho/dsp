@@ -1,0 +1,27 @@
+<h2 class="dialog-title">Enter Loyalty Phone Number</h2>
+
+<div class="loyalty-content">
+  <input
+    type="text"
+    placeholder="Enter phone number"
+    [(ngModel)]="phoneNumber"
+    [class.error]="showError"
+    readonly
+    #phoneInput
+  />
+  
+  <div class="keypad">
+    <button *ngFor="let digit of ['1','2','3','4','5','6','7','8','9','0']" (click)="appendDigit(digit)">
+      {{ digit }}
+    </button>
+    <button class="clear-btn" (click)="clearPhone()">C</button>
+    <button class="back-btn" (click)="backspace()">←</button>
+  </div>
+
+  <div class="actions">
+    <button mat-flat-button color="primary" (click)="onConfirm()">Confirm</button>
+    <button mat-flat-button color="warn" (click)="onSkip()">Skip</button>
+  </div>
+
+  <div class="error-text" *ngIf="showError">Please enter a valid 10-digit phone number</div>
+</div>
