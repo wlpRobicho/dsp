@@ -136,12 +136,3 @@ Every cashier shift is logged with revenue, refunds, and closing summary
 ## License
 This project was developed as part of a Computer Science final-year project at UWE Bristol. Use permitted for academic or demonstration purposes.
 
-## Acknowledgements
-Special thanks to:
-
-My brother-in-law for helping me understand Angular and guiding UI/UX feedback as a real developer
-
-Managers and small business owners for providing insights into real-world POS expectations
-
-University of the West of England for the opportunity
-
