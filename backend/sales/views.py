@@ -88,8 +88,6 @@ class SalesTransactionCreateView(APIView):
 
 # APIView for retrieving sales analytics
 class SalesAnalyticsView(APIView):
-    permission_classes = [IsAuthenticated]  # Restrict access to authenticated users
-
     def get(self, request):
         # Fetch analytics data using the helper function
         data = get_analytics()

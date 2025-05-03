@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Sum, Min
 from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 from users.models import User  # Assuming you're using the same User model
 from datetime import date
 from decimal import Decimal
@@ -124,7 +125,11 @@ class RestockLog(models.Model):
 class ProductBatch(models.Model):
     # Represents a batch of a product
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='batches')
-    quantity = models.PositiveIntegerField()
+    quantity = models.DecimalField(
+        max_digits=10,
+        decimal_places=3,
+        validators=[MinValueValidator(Decimal('0.001'))]
+    )
     expiry_date = models.DateField(null=True, blank=True)  # Optional expiry date
     is_expired_handled = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

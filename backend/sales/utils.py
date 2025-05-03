@@ -29,9 +29,9 @@ def generate_receipt_pdf(transaction: SalesTransaction):
     p.drawString(30, y, f"Payment: {transaction.payment_method.capitalize()}")
     if transaction.payment_method == "cash":
         y -= 20
-        p.drawString(30, y, f"Amount Received: DA {transaction.amount_received}")
+        p.drawString(30, y, f"Amount Received: $ {transaction.amount_received}")
         y -= 20
-        p.drawString(30, y, f"Change Due: DA {transaction.change_due}")
+        p.drawString(30, y, f"Change Due: $ {transaction.change_due}")
     if transaction.discount_code:
         y -= 20
         p.drawString(30, y, f"Discount Code: {transaction.discount_code.code} (10%)")
@@ -55,8 +55,8 @@ def generate_receipt_pdf(transaction: SalesTransaction):
     for item in transaction.items.all():
         line_total = item.quantity * item.unit_price  # Calculate total for the line
         p.drawString(30, y, f"{item.product.name}")  # Product name
-        p.drawString(200, y, f"{item.quantity} x {item.unit_price} DA")  # Quantity and unit price
-        p.drawString(400, y, f"{line_total:.2f} DA")  # Total price for the item
+        p.drawString(200, y, f"{item.quantity} x {item.unit_price} $")  # Quantity and unit price
+        p.drawString(400, y, f"{line_total:.2f} $")  # Total price for the item
         y -= 15
 
         # Display discount information if applicable
@@ -78,7 +78,7 @@ def generate_receipt_pdf(transaction: SalesTransaction):
     p.line(30, y, width - 30, y)  # Line above totals
     y -= 30
     p.setFont("Helvetica-Bold", 12)
-    p.drawString(30, y, f"Total Amount: DA {transaction.total_amount}")  # Display total amount
+    p.drawString(30, y, f"Total Amount: $ {transaction.total_amount}")  # Display total amount
     y -= 20
 
     # Refund notice if the transaction is a refund
