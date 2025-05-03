@@ -92,7 +92,7 @@ export class LoginComponent {
     });
 }
 
-/** New reusable popup function */
+
 showErrorPopup(message: string) {
     const snackbar = document.createElement('div');
     snackbar.className = 'error-snackbar';
@@ -109,6 +109,6 @@ showErrorPopup(message: string) {
         setTimeout(() => {
             snackbar.remove();
         }, 300);
-    }, 3000); // Show for 3 seconds
+    }, 3000); 
 }
 }

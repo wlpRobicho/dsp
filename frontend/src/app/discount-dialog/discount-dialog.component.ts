@@ -18,7 +18,7 @@ export class DiscountDialogComponent {
   ) {}
 
   addCharacter(char: string) {
-    this.discountCode += char.toUpperCase(); // Force uppercase
+    this.discountCode += char.toUpperCase(); 
     this.error = null;
   }
 
@@ -33,10 +33,10 @@ export class DiscountDialogComponent {
   }
 
   confirm() {
-    // No need for manual token/header — interceptor handles it
+   
     this.http.get(`/api/sales/discounts/validate/?code=${this.discountCode.toUpperCase()}`).subscribe({
       next: () => {
-        this.dialogRef.close(this.discountCode); // Close on success
+        this.dialogRef.close(this.discountCode); 
       },
       error: () => {
         this.error = 'Invalid or expired discount code';

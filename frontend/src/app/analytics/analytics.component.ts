@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ChartConfiguration } from 'chart.js';
 
 @Component({
@@ -9,26 +9,22 @@ import { ChartConfiguration } from 'chart.js';
 })
 export class AnalyticsComponent implements OnInit {
   analyticsData: any;
-  token: string | null = localStorage.getItem('token');
   viewMode: 'daily' | 'weekly' | 'monthly' | 'top' = 'daily';
   isDarkMode: boolean = false;
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.loadDarkModePreference(); // ✅ Load saved dark mode preference
-    if (this.token) {
-      const headers = new HttpHeaders({ Authorization: `Bearer ${this.token}` });
-      this.http.get('http://localhost:8000/api/sales/analytics/', { headers }).subscribe({
-        next: (data) => {
-          this.analyticsData = data;
-          this.setupCharts();
-        },
-        error: (error) => {
-          console.error('Failed to fetch analytics data', error);
-        }
-      });
-    }
+    this.loadDarkModePreference(); 
+    this.http.get('http://localhost:8000/api/sales/analytics/').subscribe({
+      next: (data) => {
+        this.analyticsData = data;
+        this.setupCharts();
+      },
+      error: (error) => {
+        console.error('Failed to fetch analytics data', error);
+      }
+    });
   }
 
   toggleDarkMode() {

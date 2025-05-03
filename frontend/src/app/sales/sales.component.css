@@ -87,7 +87,7 @@
 }
 
 .utility-button.refund {
-    background-color: #ff9800; /* orange */
+    background-color: #ff9800; 
 }
 
 .utility-button.refund:hover {
@@ -95,7 +95,7 @@
 }
 
 .utility-button.discount {
-    background-color: #9c27b0; /* purple */
+    background-color: #9c27b0; 
 }
 
 .utility-button.discount:hover {
@@ -103,7 +103,7 @@
 }
 
 .utility-button.clear {
-    background-color: #f44336; /* red */
+    background-color: #f44336; 
 }
 
 .utility-button.clear:hover {
@@ -111,11 +111,11 @@
 }
 
 .utility-button.non-barcode {
-  background-color: #00897b; /* Teal color */
+  background-color: #00897b; 
 }
 
 .utility-button.non-barcode:hover {
-  background-color: #26a69a; /* Lighter teal when hovered */
+  background-color: #26a69a; 
 }
 
 
@@ -142,7 +142,7 @@
     border-radius: 6px;
     cursor: pointer;
     color: white;
-    background-color: #2196f3; /* Blue */
+    background-color: #2196f3; 
     transition: all 0.3s ease;
 }
 
@@ -160,7 +160,7 @@
     margin-top: 10px;
 }
 
-/* Grid layout for cart */
+
 .cart-header,
 .cart-row {
     display: grid;
@@ -187,7 +187,7 @@
 }
 
 .cart-row.selected {
-    background-color: #008cff; /* highlight selected item */
+    background-color: #008cff; 
     color: #fff;
     font-weight: bold;
 }
@@ -405,7 +405,7 @@ button:active {
 
 /* Style the logout snackbar */
 .logout-snackbar {
-  background-color: #1e88e5; /* Blue tone */
+  background-color: #1e88e5; 
   color: #fff;
   font-weight: bold;
   font-size: 16px;
@@ -415,9 +415,9 @@ button:active {
   padding: 12px 24px;
 }
 
-/* Style the "Close" button */
+
 .logout-snackbar .mat-simple-snackbar-action {
-  color: #ffcccb; /* light red or soft pink */
+  color: #ffcccb; 
   font-weight: 500;
 }
 
@@ -451,7 +451,7 @@ button:active {
 }
 
 .utility-button.refund.active {
-  background-color: #ff5252; /* Red background for active refund mode */
+  background-color: #ff5252; 
   color: white;
 }
 
@@ -477,14 +477,14 @@ button:active {
 }
 
 .summary-grid .total {
-  color: #4caf50; /* Material green */
+  color: #4caf50; 
   font-size: 18px;
   font-weight: bold;
 }
 
 .discount-row {
     grid-column: span 2;
-    color: #81c784; /* Green color for discount */
+    color: #81c784; 
     font-style: italic;
     display: flex;
     align-items: center;
@@ -531,7 +531,7 @@ button:active {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-top: -6px; /* reduces vertical space from subtotal */
+  margin-top: -6px; 
   color: #4caf50;
   font-style: italic;
 }

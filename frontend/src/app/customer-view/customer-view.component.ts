@@ -12,7 +12,7 @@ export class CustomerViewComponent implements OnInit, OnDestroy {
   total: number = 0;
   subscription: Subscription | undefined;
   showThankYou: boolean = false;
-  showWelcome: boolean = true; // Start with welcome true
+  showWelcome: boolean = true; 
   private thankYouAlreadyShown = false;
   discountApplied: boolean = false;
 
@@ -42,7 +42,7 @@ export class CustomerViewComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         localStorage.removeItem('thank_you');
         this.showThankYou = false;
-        this.showWelcome = true; // Go back to Welcome after Thank You
+        this.showWelcome = true; 
       }, 3000);
 
     } else if (!thankYou) {
@@ -54,7 +54,7 @@ export class CustomerViewComponent implements OnInit, OnDestroy {
         this.discountApplied = parsedData.discountApplied || false;
         this.thankYouAlreadyShown = false;
 
-        // ✅ THIS CONTROLS WELCOME: If cart has items ➔ hide welcome
+     
         if (this.cartItems.length > 0) {
           this.showWelcome = false;
         } else {

@@ -162,7 +162,7 @@ export class SalesComponent {
   updateCartTotals() {
     this.subtotal = this.cartItems.reduce((sum, item) => sum + item.total, 0);
     this.totalQuantity = this.cartItems.reduce((sum, item) => sum + item.quantity, 0);  
-    this.total = this.subtotal - this.discountAmount; // just use the getter
+    this.total = this.subtotal - this.discountAmount; 
     this.updateCustomerView();
   }
 

@@ -18,7 +18,7 @@ export class NonBarcodeDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // ✅ NO need to manually attach Authorization header — Interceptor handles it
+   
     this.http.get<any[]>('http://localhost:8000/api/inventory/products/non-barcode/').subscribe({
       next: (data) => {
         this.nonBarcodeItems = data;

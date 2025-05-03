@@ -16,7 +16,7 @@ export class WeightDialogComponent {
 
   addNumber(num: string) {
     if (num === '.' && this.weightString.includes('.')) {
-      return; // prevent double decimal
+      return; 
     }
     this.weightString += num;
   }
@@ -34,7 +34,7 @@ export class WeightDialogComponent {
     if (weight > 0) {
       this.dialogRef.close(weight);
     } else {
-      // Optionally show error (or just do nothing)
+      
     }
   }
 

@@ -29,11 +29,11 @@ h2 {
   
   .popup-items-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Force exactly 5 per row */
+    grid-template-columns: repeat(5, 1fr); 
     gap: 20px;
     padding: 10px;
-    max-height: 400px; /* Limit height */
-    overflow-y: auto;  /* Enable vertical scroll */
+    max-height: 400px; 
+    overflow-y: auto; 
   }
   
   .popup-item {
