@@ -7,7 +7,7 @@ from django.db.models import Sum, F, Exists, OuterRef
 
 class ProductFilter(django_filters.FilterSet):
     category = django_filters.NumberFilter(field_name='category__id')
-    barcode = django_filters.CharFilter(lookup_expr='icontains')
+    barcode = django_filters.CharFilter(lookup_expr='iexact')
     name = django_filters.CharFilter(lookup_expr='icontains')
     is_active = django_filters.BooleanFilter()
 
