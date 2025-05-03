@@ -243,9 +243,9 @@ class SalesTransactionCreateSerializer(serializers.Serializer):
                 sale.discount_code = discount_obj if discount_applied else None
                 sale.save()
 
-                # Mark the discount code as used
-                if discount_obj:
-                    discount_obj.is_active = False  # ❌ Disable the discount code after use
+                # Mark the discount code as used only if it's a loyalty type
+                if discount_obj and discount_obj.type == 'loyalty':
+                    discount_obj.is_active = False
                     discount_obj.save()
 
                 generate_receipt_pdf(sale)
